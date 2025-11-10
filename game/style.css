@@ -1,9 +1,9 @@
 /* Minimal styles for POC */
 :root {
-  --bg: #0f1724;
-  --panel: #0b1220;
-  --accent: #3b82f6;
-  --text: #e6eef8;
+  --bg: #FFF3BE;
+  --panel: #FFF3BE;
+  --accent: #BE986D;
+  --text: #BE986D;
 }
 html,
 body {
@@ -13,7 +13,7 @@ body {
     Arial;
 }
 body {
-  background: linear-gradient(180deg, var(--bg), #071022);
+background: var(--bg);
   color: var(--text);
   display: flex;
   align-items: center;
@@ -34,7 +34,7 @@ body {
 }
 button {
   background: var(--accent);
-  color: white;
+  color: #FFF3BE;
   border: 0;
   padding: 10px 16px;
   border-radius: 6px;
@@ -47,3 +47,152 @@ canvas {
   height: auto;
   margin-top: 12px;
 }
+
+/* Game screen layout */
+.game-grid {
+  display: grid;
+  grid-template-columns: 80px 1fr; /* thin left menu + main area */
+  grid-template-rows: 1fr 33.333%; /* main canvas top, bottom menu = 1/3 */
+  gap: 12px;
+  height: 600px; /* base height for the playable area; responsive tweaks can be added later */
+}
+
+.side-menu {
+  grid-column: 1 / 2;
+  grid-row: 1 / span 2; /* span both rows */
+  background: rgba(59,130,246,0.12); /* subtle blue placeholder */
+  border-radius: 8px;
+}
+
+#gameCanvas {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background: #071218;
+  display: block;
+}
+
+.bottom-menu {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  background: rgba(16,185,129,0.12); /* subtle green placeholder */
+  border-radius: 8px;
+}
+
+.small {
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+/* Boba UI (scoped under #bobaRoot) - styles adapted from boba/style.css */
+#bobaRoot {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#bobaRoot .game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+#bobaRoot .cup {
+  position: relative;
+  width: 250px;
+  height: 420px;
+  margin-bottom: 1rem;
+}
+
+#bobaRoot .cup * {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#bobaRoot .base {
+  background-color: #d1a66e;
+  border-radius: 0 0 50px 50px;
+  /* slightly smaller visible base inside the cup */
+  top: 30%;
+  height: 60%;
+  z-index: 1;
+}
+
+#bobaRoot .in-topping {
+  z-index: 2;
+  /* make the in-cup topping smaller and centered inside the cup */
+  width: 75%;
+  height: auto;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+}
+#bobaRoot .over-topping {
+  z-index: 3;
+  /* move over-drink topping higher and scale down within the cup */
+  width: 120%;
+  height: auto;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -75%);
+  object-fit: contain;
+}
+#bobaRoot .cup-outline { z-index: 4; }
+
+#bobaRoot .menu {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background: #fff;
+  border-top: 2px solid #ccc;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+#bobaRoot .menu-section { text-align: center; }
+
+#bobaRoot .options { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
+
+#bobaRoot .option {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+  overflow: hidden;
+}
+
+#bobaRoot .option:hover { transform: scale(1.1); border-color: #000; }
+
+#bobaRoot .option img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Make mainArea fill the grid cell and position children */
+#mainArea {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#mainArea > canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+}
+#bobaRoot {
+  position: relative;
+  z-index: 2;

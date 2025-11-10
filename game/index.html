@@ -12,7 +12,48 @@
       <h1>MiniGame POC</h1>
       <button id="startBtn">Start</button>
     </div>
-    <canvas id="gameCanvas" class="screen hidden" width="800" height="600"></canvas>
+
+    <div id="gameScreen" class="screen hidden">
+      <div class="game-header" style="display:flex;justify-content:flex-end">
+        <button id="backBtn" class="small">Back</button>
+      </div>
+
+      <div class="game-grid">
+
+        <!-- Main interactive area (top-right cell) -->
+        <div id="mainArea">
+          <!-- Boba mini-game UI integrated here -->
+          <div id="bobaRoot" class="boba-root">
+            <div class="game-container">
+              <div class="cup">
+                <div class="base"></div>
+                <img class="in-topping" src="assets/inToppings/pearls.png" />
+                <img class="over-topping" src="assets/overToppings/cream.png" />
+                <img class="cup-outline" src="assets/cup-outline.png" />
+              </div>
+
+              <div class="menu">
+                <div class="menu-section">
+                  <h3>Base Flavors</h3>
+                  <div class="options" id="base-options"></div>
+                </div>
+                <div class="menu-section">
+                  <h3>In-Drink Toppings</h3>
+                  <div class="options" id="in-options"></div>
+                </div>
+                <div class="menu-section">
+                  <h3>Over-Drink Toppings</h3>
+                  <div class="options" id="over-options"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Keep canvas available for other games; boba UI sits above it by default -->
+          <canvas id="gameCanvas"></canvas>
+        </div>
+      </div>
+    </div>
   </main>
   <script src="script.js" type="module"></script>
 </body>
