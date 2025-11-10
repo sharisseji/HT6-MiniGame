@@ -147,7 +147,10 @@ canvas {
   transform: translate(-50%, -75%);
   object-fit: contain;
 }
-#bobaRoot .cup-outline { z-index: 4; }
+/* The original cup-outline image contains a white background in the asset which
+  can show as a white rectangle around the cup when sized to 100%. Hide it by
+  default; if you later replace the asset with a transparent PNG, remove this rule. */
+#bobaRoot .cup-outline { z-index: 4; display: none; }
 
 #bobaRoot .menu {
   display: flex;
@@ -196,3 +199,4 @@ canvas {
 #bobaRoot {
   position: relative;
   z-index: 2;
+}

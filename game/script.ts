@@ -23,9 +23,8 @@ function initGame() {
   if (!ctx) return;
   ctx.fillStyle = '#222';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = '#fff';
-  ctx.font = '24px sans-serif';
-  ctx.fillText('Game running (POC)', 50, 50);
+  // ctx.fillStyle = '#fff';
+  // ctx.font = '24px sans-serif';
 }
 
 // --- Boba mini-game integration ---
