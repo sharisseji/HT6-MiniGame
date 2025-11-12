@@ -44,11 +44,11 @@ function initBoba() {
   if (!baseContainer || !inContainer || !overContainer || !baseDiv) return;
 
   const baseFlavors: Record<string, string> = {
-    milkTea: '#d1a66e',
-    matcha: '#9bcb6a',
-    taro: '#bfa0d6',
-    strawberry: '#f497b7',
-    coffee: '#a37552',
+    milkTea: '#DAA26E',
+    matcha: '#BFDCA3',
+    taro: '#C6BCFF',
+    lychee: '#FEC0CE',
+    thaiTea: '#FFCF94',
   };
 
   const inToppings = ['pearls', 'jelly', 'pudding'];
