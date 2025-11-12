@@ -52,7 +52,7 @@ function initBoba() {
   };
 
   const inToppings = ['pearls', 'jelly', 'pudding'];
-  const overToppings = ['cream', 'cheesefoam', 'whippedcream'];
+  const overToppings = ['chocolate', 'strawberry', 'cheesefoam'];
 
   // guard to avoid double-population
   if (baseContainer.children.length === 0) {

@@ -31,9 +31,9 @@ var IN_TOPPINGS = [
     { key: 'pudding', label: 'Pudding' }
 ];
 var OVER_TOPPINGS = [
-    { key: 'cream', label: 'Cream' },
-    { key: 'cheesefoam', label: 'Cheese Foam' },
-    { key: 'whippedcream', label: 'Whipped Cream' }
+    { key: 'chocolate', label: 'Chocolate' },
+    { key: 'strawberry', label: 'Strawberry' },
+    { key: 'cheesefoam', label: 'Cheese Foam' }
 ];
 function showScreen(id) {
     var screens = document.querySelectorAll('.screen');
@@ -132,7 +132,7 @@ function initBoba() {
         }
         currentSelection.base = 'milkTea';
         currentSelection.in = 'pearls';
-        currentSelection.over = 'cream';
+        currentSelection.over = 'chocolate';
         if (baseDiv && BASE_FLAVORS[currentSelection.base]) {
             baseDiv.style.backgroundColor = BASE_FLAVORS[currentSelection.base].color;
         }
